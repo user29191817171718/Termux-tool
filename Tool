@@ -1,0 +1,36 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+clear
+echo -e "\e[31m"
+cat << "EOF"
+████████╗███████╗██████╗ ██████╗  ██████╗ ██████╗ 
+╚══██╔══╝██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗
+   ██║   █████╗  ██████╔╝██████╔╝██║   ██║██████╔╝
+   ██║   ██╔══╝  ██╔══██╗██╔══██╗██║   ██║██╔══██╗
+   ██║   ███████╗██║  ██║██║  ██║╚██████╔╝██║  ██║
+   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝
+EOF
+echo -e "\e[0m"
+
+echo "TERROR TOOL BY QWER"
+echo "Network / Utility Tool"
+echo
+echo "[1] Show your IP info"
+echo "[2] Show local network info"
+echo "[3] Upgrade packages (pkg)"
+echo "[4] Alien Eye (launcher only)"
+echo
+read -p "Choose option: " opt
+
+case $opt in
+  1) ip addr show ;;
+  2) ip route ;;
+  3) pkg update && pkg upgrade ;;
+  4)
+     if command -v alieneye >/dev/null 2>&1; then
+       alieneye
+     else
+       echo "Alien Eye not installed"
+     fi ;;
+  *) echo "Invalid option" ;;
+esac
